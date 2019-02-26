@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./vendor/video-js.min.css" />
+    <style>
+      .vjs-button > .vjs-icon-placeholder:before {
+        line-height: 2;
+      }
+    </style>
+    <script src="./vendor/video.min.js"></script>
+    <script src="./vendor/videojs-flash.min.js"></script>
+    <title>demo1</title>
+  </head>
+  <body>
+    <video
+      id="player"
+      class="video-js vjs-big-play-centered fix-vertical"
+    ></video>
+
+    <script>
+      const player = videojs("player", {
+        flash: { swf: "./vendor/video-js.swf" },
+        techOrder: ["flash"],
+        width: 580,
+        height: 420,
+        //controls: true,
+        controlBar: {
+          playbackRateMenuButton: false,
+          remainingTimeDisplay: false,
+          progressControl: false
+        },
+        autoplay: true,
+        poster: "./assets/oceans.png",
+        sources: [
+          {
+            src: "rtmp://192.168.0.231:1935/live&home",
+            type: "rtmp/mp4"
+          }
+        ]
+      });
+      player.on("ready", err => {
+        console.log(2222, err);
+      });
+      player.on("error", err => {
+        console.log(1111, err);
+      });
+    </script>
+  </body>
+</html>

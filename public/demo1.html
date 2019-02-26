@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>demo1</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo1.less" />
+    <link rel="stylesheet" href="./vendor/video-js.min.css" />
+    <script src="./vendor/video.min.js"></script>
+    <script src="./vendor/videojs-flash.min.js"></script>
+    <script src="./vendor/three.min.js"></script>
+    <script src="./vendor/vue.min.js"></script>
+    <script src="./vendor/dayjs.min.js"></script>
+    <script src="./vendor/less.min.js"></script>
+    <script src="./vendor/countUp.min.js"></script>
+    <script src="./vendor/zh-cn.js"></script>
+    <script src="./vendor/socket.io.js"></script>
+  </head>
+  <body>
+    <div id="bg"></div>
+    <div id="app">
+      <!-- <div class="ringct">
+        <div class="ring red"></div>
+        <div class="ring green"></div>
+        <div class="ring blue"></div>
+        <div class="ring yellow"></div>
+      </div> -->
+
+      <!-- <div class="ri"></div> -->
+
+      <div class="test">
+        <div class="logo">
+          <div class="en">UBVAI</div>
+          <div class="cn">人工智能开放平台</div>
+        </div>
+        <div class="box">
+          <div class="right-top"></div>
+          <div class="left-top"></div>
+          <div class="right-bottom"></div>
+          <div class="left-bottom"></div>
+          <div class="live"><span></span>Live</div>
+          <video id="player" class="video-js vjs-big-play-centered fix"></video>
+        </div>
+      </div>
+
+      <div class="timebox">
+        <div class="box-dot">
+          <div class="right-top"></div>
+          <div class="left-top"></div>
+          <div class="right-bottom"></div>
+          <div class="left-bottom"></div>
+          <div class="title">当前时间：</div>
+          <div class="time">{{ time }}</div>
+          <div class="date">{{ date }}</div>
+        </div>
+        <div class="text">
+          <div class="tit">DEVICE STATUS</div>
+          <div class="subtit"><span></span>Online</div>
+        </div>
+      </div>
+
+      <div class="databox">
+        <div class="box-dot">
+          <div class="right-top"></div>
+          <div class="left-top"></div>
+          <div class="right-bottom"></div>
+          <div class="left-bottom"></div>
+          <div class="datatit">
+            <div class="en">STATICS</div>
+            <div class="cn">实时数据统计</div>
+          </div>
+        </div>
+        <div class="bb" style="margin-top:10px;">
+          <div class="box-dot" style="margin-right:10px;">
+            <div class="right-top"></div>
+            <div class="left-top"></div>
+            <div class="right-bottom"></div>
+            <div class="left-bottom"></div>
+            <div class="datanum">
+              <div class="text1">累计数据处理量</div>
+              <div class="nn" id="num1"></div>
+              <div class="percent">+10.3%</div>
+            </div>
+          </div>
+          <div class="box-dot">
+            <div class="right-top"></div>
+            <div class="left-top"></div>
+            <div class="right-bottom"></div>
+            <div class="left-bottom"></div>
+            <div class="datanum">
+              <div class="text1">累计视频处理量</div>
+              <div class="nn" id="num2"></div>
+              <div class="percent">+20.8%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="logbox">
+        <div class="box-dot">
+          <div class="right-top"></div>
+          <div class="left-top"></div>
+          <div class="right-bottom"></div>
+          <div class="left-bottom"></div>
+          <div class="datatit">
+            <div class="en">LOGBOOK</div>
+            <div class="cn">实时日志</div>
+          </div>
+        </div>
+
+        <div class="box-dot" style="margin-top:10px;">
+          <div class="right-top"></div>
+          <div class="left-top"></div>
+          <div class="right-bottom"></div>
+          <div class="left-bottom"></div>
+          <div class="log"></div>
+        </div>
+      </div>
+
+      <div class="infobox">
+        <div class="box-dot">
+          <div class="right-top"></div>
+          <div class="left-top"></div>
+          <div class="right-bottom"></div>
+          <div class="left-bottom"></div>
+          <div class="datatit">
+            <div class="en">LOGBOOK</div>
+            <div class="cn">实时日志</div>
+          </div>
+        </div>
+
+        <div class="box-dot" style="margin-top:10px;">
+          <div class="right-top"></div>
+          <div class="left-top"></div>
+          <div class="right-bottom"></div>
+          <div class="left-bottom"></div>
+          <div class="log">
+            <div id="list-complete-demo" class="demo">
+              <transition-group name="list-complete" tag="p">
+                <span
+                  v-for="item in items"
+                  v-bind:key="item"
+                  class="list-complete-item"
+                >
+                  {{ item }}
+                </span>
+              </transition-group>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./demo1.js"></script>
+  </body>
+</html>

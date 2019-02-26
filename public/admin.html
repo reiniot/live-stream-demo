@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum=1.0,user-scalable=no"
+    />
+    <title>Document</title>
+    <script src="./vendor/socket.io.js"></script>
+    <script src="./vendor/vue.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body,
+      #app {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .btn {
+        width: 80%;
+        font-size: 7vw;
+        background: #007cff;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2vw;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="btn" @click="send">测试</div>
+    </div>
+
+    <script>
+      const socket = io("localhost:3000");
+
+      new Vue({
+        el: "#app",
+        data: {},
+        methods: {
+          send: function() {
+            socket.emit("test", {
+              file: "req.file.filename",
+              id: "req.body.user_id",
+              score: "req.body.score"
+            });
+          }
+        },
+        mounted: function() {
+          this.$nextTick(function() {});
+        }
+      });
+    </script>
+  </body>
+</html>
