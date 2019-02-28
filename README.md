@@ -42,4 +42,5 @@ var rtmp = "rtmp://192.168.1.1:1935/live/myStream";
 输入
 node index &
 然后回车
+chrome浏览器访问http://localhost:3000/public
 ```
