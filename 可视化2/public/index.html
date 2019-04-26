@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet/less" type="text/css" href="./index.less" />
+    <link rel="stylesheet" href="./vendor/video-js.min.css" />
+    <script src="./vendor/video.min.js"></script>
+    <script src="./vendor/videojs-flash.min.js"></script>
+    <script src="./vendor/three.min.js"></script>
+    <script src="./vendor/vue.min.js"></script>
+    <script src="./vendor/less.min.js"></script>
+    <script src="./vendor/countUp.min.js"></script>
+    <script src="./vendor/dayjs.min.js"></script>
+    <script src="./vendor/zh-cn.js"></script>
+    <script src="./vendor/socket.io.js"></script>
+    <script src="./config.js"></script>
+  </head>
+  <body>
+    <div id="bg"></div>
+    <div id="app">
+      <div class="left">
+        <div class="logo">
+          <div class="en">MOKAN</div>
+          <div class="cn">人工智能开放平台</div>
+        </div>
+        <div class="video-box">
+          <div class="inner">
+            <div class="right-top"></div>
+            <div class="left-top"></div>
+            <div class="right-bottom"></div>
+            <div class="left-bottom"></div>
+            <div class="cont">
+              <div class="live"><span></span>Live</div>
+              <div class="box">
+                <div class="adsfasfdasf">
+                  <video
+                    id="player"
+                    class="video-js vjs-big-play-centered  fix"
+                  ></video>
+                </div>
+                <div class="adsfasfdasf">
+                  <video
+                    id="player2"
+                    class="video-js vjs-big-play-centered  fix"
+                  ></video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="camera">
+          <div class="box-dot">
+            <div class="right-top"></div>
+            <div class="left-top"></div>
+            <div class="right-bottom"></div>
+            <div class="left-bottom"></div>
+            <div class="img-box">
+              <transition-group name="list-complete2">
+                <div v-for="item in items" v-bind:key="item" class="item">
+                  <div class="imgb">
+                    <img :src="`/uploads/${item.file1}`" />
+                  </div>
+                </div>
+              </transition-group>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="logbox">
+          <div class="timebox">
+            <!-- <div class="title">当前时间：</div> -->
+            <div class="time">{{ time }}</div>
+            <div class="date">{{ date }}</div>
+          </div>
+
+          <div class="box-dot">
+            <div class="right-top"></div>
+            <div class="left-top"></div>
+            <div class="right-bottom"></div>
+            <div class="left-bottom"></div>
+            <!-- <div class="datatit">
+              <div class="en">LOGBOOK</div>
+              <div class="cn">实时日志</div>
+            </div> -->
+            <div class="log">
+              <div class="itemb">
+                <transition-group name="list-complete">
+                  <div v-for="item in items2" v-bind:key="item" class="item">
+                    <div class="right-top1"></div>
+                    <div class="left-top1"></div>
+                    <div class="right-bottom1"></div>
+                    <div class="left-bottom1"></div>
+                    <div class="real">
+                      <img :src="`/uploads/${item.file}`" />
+                    </div>
+                    <!-- <div class="line"></div>
+                    <div class="db">
+                      <img
+                        :src="item.id?`/public/face/${item.id}.jpg`:'/public/assets/forbid.jpg'"
+                      />
+                    </div>
+                    <div v-if="item.id" class="textb success">
+                      <div class="text1">对比成功</div>
+                      <div class="text2">姓名：{{ db[item.id].name }}</div>
+                      <div class="text3">职务：{{ db[item.id].pos }}</div>
+                    </div>
+                    <div v-else class="textb failure">
+                      <div class="text1">对比无效</div>
+                      <div class="text2">
+                        姓名：未知
+                      </div>
+                      <div class="text3">
+                        职务：未知
+                      </div>
+                    </div> -->
+                  </div>
+                </transition-group>
+              </div>
+              <!-- <div class="spline"></div>
+              <div class="textinfo">
+                <div class="text1">检测中...</div>
+
+                <div class="tbx">
+                  <div v-if="items[0]">
+                    <div>{{ items[0].time }}</div>
+                    <div v-if="items[0].id">
+                      <div>对比成功</div>
+                      <div>{{ items[0].score }}</div>
+                    </div>
+                    <div v-else>
+                      <div>对比无效</div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./bg.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
